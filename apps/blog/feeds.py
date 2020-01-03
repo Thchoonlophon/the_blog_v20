@@ -5,7 +5,7 @@ from django.conf import settings
 
 class AllArticleRssFeed(Feed):
     # 显示在聚会阅读器上的标题
-    title = settings.SITE_END_TITLE
+    # title = settings.SITE_END_TITLE
     # 跳转网址，为主页
     link = "/"
     # 描述内容
