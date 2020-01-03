@@ -65,7 +65,6 @@ class Comment(models.Model):
                                null=True, on_delete=models.CASCADE)
     rep_to = models.ForeignKey('self', verbose_name='回复', related_name='%(class)s_rep_comments',
                                blank=True, null=True, on_delete=models.CASCADE)
-    tes_field = models.CharField('test_field', max_length=16, default='1')
 
     class Meta:
         '''这是一个元类，用来继承的'''
