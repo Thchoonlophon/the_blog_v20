@@ -206,11 +206,19 @@ REST_FRAMEWORK = {
 }
 
 # 配置数据库
-MYSQL_HOST = os.getenv('IZONE_MYSQL_HOST', '127.0.0.1')
-MYSQL_NAME = os.getenv('IZONE_MYSQL_NAME', 'new_blog')
-MYSQL_USER = os.getenv('IZONE_MYSQL_USER', 'root')
-MYSQL_PASSWORD = os.getenv('IZONE_MYSQL_PASSWORD', 'python')
-MYSQL_PORT = os.getenv('IZONE_MYSQL_PORT', 3306)
+# MYSQL_HOST = os.getenv('IZONE_MYSQL_HOST', '127.0.0.1')
+# MYSQL_NAME = os.getenv('IZONE_MYSQL_NAME', 'izone')
+# MYSQL_USER = os.getenv('IZONE_MYSQL_USER', 'root')
+# MYSQL_PASSWORD = os.getenv('IZONE_MYSQL_PASSWORD', 'python')
+# MYSQL_PORT = os.getenv('IZONE_MYSQL_PORT', 3306)
+# MYSQL_HOST = "111.229.154.193"
+MYSQL_HOST = "47.110.40.25"
+# MYSQL_NAME = "blog_data"
+MYSQL_NAME = "new_blog"
+# MYSQL_USER = "jinxuan"
+MYSQL_USER = "kofan"
+MYSQL_PASSWORD = "qian2617..com"
+MYSQL_PORT = 3306
 
 DATABASES = {
     'default': {
@@ -225,8 +233,11 @@ DATABASES = {
 }
 
 # 使用django-redis缓存页面，缓存配置如下：
-REDIS_HOST = os.getenv('IZONE_REDIS_HOST', '127.0.0.1')
-REDIS_PORT = os.getenv('IZONE_REDIS_PORT', 6379)
+# REDIS_HOST = os.getenv('IZONE_REDIS_HOST', '127.0.0.1')
+# REDIS_PORT = os.getenv('IZONE_REDIS_PORT', 6379)
+# REDIS_HOST = "111.229.154.193"
+REDIS_HOST = "47.110.40.25"
+REDIS_PORT = 6379
 
 CACHES = {
     "default": {
@@ -248,7 +259,7 @@ if admin_email_user:
 
 # 邮箱配置
 EMAIL_HOST = os.getenv('IZONE_EMAIL_HOST', 'smtp.163.com')
-EMAIL_HOST_USER = os.getenv('IZONE_EMAIL_HOST_USER', 'your-email-address')
+EMAIL_HOST_USER = os.getenv('IZONE_EMAIL_HOST_USER', 'qian_chen_jin@163.com')
 EMAIL_HOST_PASSWORD = os.getenv('IZONE_EMAIL_HOST_PASSWORD', 'your-email-password')  # 这个不是邮箱密码，而是授权码
 EMAIL_PORT = os.getenv('IZONE_EMAIL_PORT', 465)  # 由于阿里云的25端口打不开，所以必须使用SSL然后改用465端口
 EMAIL_TIMEOUT = 5
@@ -258,16 +269,16 @@ EMAIL_USE_SSL = os.getenv('IZONE_EMAIL_USE_SSL', 'True').upper() == 'TRUE'
 DEFAULT_FROM_EMAIL = os.getenv('IZONE_DEFAULT_FROM_EMAIL', 'TendCode博客 <your-email-address>')
 
 # 网站默认设置和上下文信息
-SITE_LOGO_NAME = os.getenv('IZONE_LOGO_NAME', 'TendCode')
+SITE_LOGO_NAME = os.getenv('IZONE_LOGO_NAME', '秋城夜话')
 SITE_END_TITLE = os.getenv('IZONE_SITE_END_TITLE', '秋城夜话')
 SITE_DESCRIPTION = os.getenv('IZONE_SITE_DESCRIPTION', '秋城夜话 是一个使用 Django+Bootstrap4 搭建的个人博客类型网站')
 SITE_KEYWORDS = os.getenv('IZONE_SITE_KEYWORDS', '秋城夜话,Django博客,个人博客')
 
 # 个性化设置，非必要信息
 # 个人 Github 地址
-MY_GITHUB = os.getenv('IZONE_GITHUB', 'https://github.com/Thchoonlophon')
+# MY_GITHUB = os.getenv('IZONE_GITHUB', 'https://github.com/Thchoonlophon')
 # 工信部备案信息
-BEIAN = os.getenv('IZONE_BEIAN', '网站备案信息')
+# BEIAN = os.getenv('IZONE_BEIAN', '网站备案信息')
 # 站长统计（友盟）
 CNZZ_PROTOCOL = os.getenv('IZONE_CNZZ_PROTOCOL', '')
 # 站长推送
