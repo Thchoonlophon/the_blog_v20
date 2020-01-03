@@ -95,5 +95,5 @@ ENV/
 # 忽略网站个人信息，这些信息需要单独设置，不共享
 whoosh_index/
 *.env
-
+migrations/
 
