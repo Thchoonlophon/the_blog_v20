@@ -37,7 +37,8 @@ TOOL_FLAG = os.getenv('IZONE_TOOL_FLAG', 'True').upper() == 'TRUE'
 API_FLAG = os.getenv('IZONE_API_FLAG', 'False').upper() == 'TRUE'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('IZONE_DEBUG', 'True').upper() == 'TRUE'
+# DEBUG = os.getenv('IZONE_DEBUG', 'True').upper() == 'TRUE'
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
