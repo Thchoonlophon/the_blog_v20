@@ -13,9 +13,9 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 import sys
 
-# import pymysql
-#
-# pymysql.install_as_MySQLdb()
+import pymysql
+
+pymysql.install_as_MySQLdb()
 
 # 导入网站个人信息，非通用信息
 
