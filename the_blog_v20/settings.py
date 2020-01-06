@@ -13,9 +13,9 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 import sys
 
-import pymysql
-
-pymysql.install_as_MySQLdb()
+# import pymysql
+#
+# pymysql.install_as_MySQLdb()
 
 # 导入网站个人信息，非通用信息
 
@@ -29,15 +29,15 @@ sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('IZONE_SECRET_KEY', '#!kta!9e0)24d@9#=*=ra$r!0k0+p5@w+a%7g1bbof9+ad@4_(')
+SECRET_KEY = os.getenv('SECRET_KEY', '#!kta!9e0)24d@9#=*=ra$r!0k0+p5@w+a%7g1bbof9+ad@4_(')
 
 # 是否开启[在线工具]应用
-TOOL_FLAG = os.getenv('IZONE_TOOL_FLAG', 'True').upper() == 'TRUE'
+TOOL_FLAG = os.getenv('TOOL_FLAG', 'True').upper() == 'TRUE'
 # 是否开启[API]应用
-API_FLAG = os.getenv('IZONE_API_FLAG', 'False').upper() == 'TRUE'
+API_FLAG = os.getenv('API_FLAG', 'False').upper() == 'TRUE'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('IZONE_DEBUG', 'True').upper() == 'TRUE'
+DEBUG = os.getenv('DEBUG', 'True').upper() == 'TRUE'
 
 ALLOWED_HOSTS = ['*']
 
@@ -99,7 +99,7 @@ LOGIN_REDIRECT_URL = "/"
 # Email setting
 # 注册中邮件验证方法:“强制（mandatory）”,“可选（optional）【默认】”或“否（none）”之一。
 # 开启邮箱验证的话，如果邮箱配置不可用会报错，所以默认关闭，根据需要自行开启
-ACCOUNT_EMAIL_VERIFICATION = os.getenv('IZONE_ACCOUNT_EMAIL_VERIFICATION', 'none')
+ACCOUNT_EMAIL_VERIFICATION = os.getenv('ACCOUNT_EMAIL_VERIFICATION', 'none')
 # 登录方式，选择用户名或者邮箱都能登录
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 # 设置用户注册的时候必须填写邮箱地址
@@ -210,19 +210,11 @@ REST_FRAMEWORK = {
 }
 
 # 配置数据库
-# MYSQL_HOST = os.getenv('IZONE_MYSQL_HOST', '127.0.0.1')
-# MYSQL_NAME = os.getenv('IZONE_MYSQL_NAME', 'izone')
-# MYSQL_USER = os.getenv('IZONE_MYSQL_USER', 'root')
-# MYSQL_PASSWORD = os.getenv('IZONE_MYSQL_PASSWORD', 'python')
-# MYSQL_PORT = os.getenv('IZONE_MYSQL_PORT', 3306)
-# MYSQL_HOST = "111.229.154.193"
-MYSQL_HOST = "47.110.40.25"
-# MYSQL_NAME = "blog_data"
-MYSQL_NAME = "new_blog"
-# MYSQL_USER = "jinxuan"
-MYSQL_USER = "kofan"
-MYSQL_PASSWORD = "qian2617..com"
-MYSQL_PORT = 3306
+MYSQL_HOST = os.getenv('MYSQL_HOST', '127.0.0.1')
+MYSQL_NAME = os.getenv('MYSQL_NAME', 'name')
+MYSQL_USER = os.getenv('MYSQL_USER', 'root')
+MYSQL_PASSWORD = os.getenv('MYSQL_PASSWORD', 'password')
+MYSQL_PORT = os.getenv('MYSQL_PORT', 3306)
 
 DATABASES = {
     'default': {
@@ -237,11 +229,8 @@ DATABASES = {
 }
 
 # 使用django-redis缓存页面，缓存配置如下：
-# REDIS_HOST = os.getenv('IZONE_REDIS_HOST', '127.0.0.1')
-# REDIS_PORT = os.getenv('IZONE_REDIS_PORT', 6379)
-# REDIS_HOST = "111.229.154.193"
-REDIS_HOST = "47.110.40.25"
-REDIS_PORT = 6379
+REDIS_HOST = os.getenv('IZONE_REDIS_HOST', '127.0.0.1')
+REDIS_PORT = os.getenv('IZONE_REDIS_PORT', 6379)
 
 CACHES = {
     "default": {
@@ -255,41 +244,26 @@ CACHES = {
 
 # 配置管理邮箱，服务出现故障会收到到邮件，环境变量值的格式：name|test@test.com 多组用户用英文逗号隔开
 ADMINS = []
-admin_email_user = os.getenv('IZONE_ADMIN_EMAIL_USER')
+admin_email_user = os.getenv('ADMIN_EMAIL_USER')
 if admin_email_user:
     for each in admin_email_user.split(','):
         a_user, a_email = each.split('|')
         ADMINS.append((a_user, a_email))
 
 # 邮箱配置
-EMAIL_HOST = os.getenv('IZONE_EMAIL_HOST', 'smtp.163.com')
-EMAIL_HOST_USER = os.getenv('IZONE_EMAIL_HOST_USER', 'qian_chen_jin@163.com')
-EMAIL_HOST_PASSWORD = os.getenv('IZONE_EMAIL_HOST_PASSWORD', 'your-email-password')  # 这个不是邮箱密码，而是授权码
-EMAIL_PORT = os.getenv('IZONE_EMAIL_PORT', 465)  # 由于阿里云的25端口打不开，所以必须使用SSL然后改用465端口
+EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.163.com')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', 'qian_chen_jin@163.com')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', 'your-email-password')  # 这个不是邮箱密码，而是授权码
+EMAIL_PORT = os.getenv('EMAIL_PORT', 465)  # 由于阿里云的25端口打不开，所以必须使用SSL然后改用465端口
 EMAIL_TIMEOUT = 5
 # 是否使用了SSL 或者TLS，为了用465端口，要使用这个
-EMAIL_USE_SSL = os.getenv('IZONE_EMAIL_USE_SSL', 'True').upper() == 'TRUE'
+EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL', 'True').upper() == 'TRUE'
 # 默认发件人，不设置的话django默认使用的webmaster@localhost，所以要设置成自己可用的邮箱
-DEFAULT_FROM_EMAIL = os.getenv('IZONE_DEFAULT_FROM_EMAIL', '秋城夜话 <your-email-address>')
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', '秋城夜话 <your-email-address>')
 
 # 网站默认设置和上下文信息
-SITE_DESCRIPTION = os.getenv('IZONE_SITE_DESCRIPTION', '秋城夜话 是一个使用 Django+Bootstrap4 搭建的个人博客类型网站')
-SITE_KEYWORDS = os.getenv('IZONE_SITE_KEYWORDS', '秋城夜话,Django博客,个人博客')
+SITE_DESCRIPTION = os.getenv('SITE_DESCRIPTION', '秋城夜话 是一个使用 Django+Bootstrap4 搭建的个人博客类型网站')
+SITE_KEYWORDS = os.getenv('SITE_KEYWORDS', '秋城夜话,Django博客,个人博客')
 
-# 个性化设置，非必要信息
-# 个人 Github 地址
-# MY_GITHUB = os.getenv('IZONE_GITHUB', 'https://github.com/Thchoonlophon')
-# 工信部备案信息
-# BEIAN = os.getenv('IZONE_BEIAN', '网站备案信息')
-# 站长统计（友盟）
-CNZZ_PROTOCOL = os.getenv('IZONE_CNZZ_PROTOCOL', '')
-# 站长推送
-MY_SITE_VERIFICATION = os.getenv('IZONE_SITE_VERIFICATION', '')
 # 使用 http 还是 https （sitemap 中的链接可以体现出来）
-PROTOCOL_HTTPS = os.getenv('IZONE_PROTOCOL_HTTPS', 'HTTP').lower()
-# hao.tendcode.com
-HAO_CONSOLE = {
-    'flag': os.getenv('IZONE_HAO_FLAG', 'False').upper() == 'TRUE',
-    'name': os.getenv('IZONE_HAO_NAME', '微草导航'),
-    'url': os.getenv('IZONE_HAO_URL', 'https://hao.tendcode.com')
-}
+PROTOCOL_HTTPS = os.getenv('PROTOCOL_HTTPS', 'HTTP').lower()
