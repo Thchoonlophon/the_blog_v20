@@ -37,7 +37,7 @@ TOOL_FLAG = os.getenv('TOOL_FLAG', 'True').upper() == 'TRUE'
 API_FLAG = os.getenv('API_FLAG', 'False').upper() == 'TRUE'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
