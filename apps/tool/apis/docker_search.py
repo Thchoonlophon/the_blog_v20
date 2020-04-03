@@ -53,10 +53,10 @@ class DockerSearch(object):
                 self.get_items(next_url)
 
     def main(self):
-        '''
+        """
         总共三种状态，有查询结果返回200，无结果 >（超时返回500，其他都返回404）
         :return:
-        '''
+        """
         self.get_items(self.url)
         if not self.results:
             if self.code == self.STATUS_500:
