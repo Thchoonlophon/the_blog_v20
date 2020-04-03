@@ -39,7 +39,7 @@ class Tag(models.Model):
         return reverse('blog:tag', kwargs={'slug': self.slug})
 
     def get_article_list(self):
-        '''返回当前标签下所有发表的文章列表'''
+        """返回当前标签下所有发表的文章列表"""
         return Article.objects.filter(tags=self)
 
 
@@ -205,7 +205,7 @@ class FriendLink(models.Model):
         return self.name
 
     def get_home_url(self):
-        '''提取友链的主页'''
+        """提取友链的主页"""
         u = re.findall(r'(http|https://.*?)/.*?', self.link)
         home_url = u[0] if u else self.link
         return home_url
@@ -217,6 +217,7 @@ class FriendLink(models.Model):
     def show_to_false(self):
         self.is_show = True
         self.save(update_fields=['is_show'])
+
 
 class AboutBlog(models.Model):
     body = models.TextField(verbose_name='About 内容')
@@ -235,4 +236,3 @@ class AboutBlog(models.Model):
             'markdown.extensions.extra',
             'markdown.extensions.codehilite',
         ])
-
