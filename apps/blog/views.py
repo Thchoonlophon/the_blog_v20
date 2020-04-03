@@ -8,16 +8,13 @@ from django.core.cache import cache
 
 from markdown.extensions.toc import TocExtension  # 锚点的拓展
 import markdown
-import time, datetime
+import time
 
 from haystack.generic_views import SearchView  # 导入搜索视图
 from haystack.query import SearchQuerySet
 
 
 # Create your views here.
-
-def goview(request):
-    return render(request, 'test_html.html')
 
 
 class ArchiveView(generic.ListView):
@@ -38,8 +35,8 @@ class IndexView(generic.ListView):
     def get_ordering(self):
         sort = self.kwargs.get('sort')
         if sort == 'v':
-            return ('-views', '-update_date', '-id')
-        return ('-is_top', '-create_date')
+            return '-views', '-update_date', '-id'
+        return '-is_top', '-create_date'
 
 
 class DetailView(generic.DetailView):
@@ -93,7 +90,7 @@ class CategoryView(generic.ListView):
         ordering = super(CategoryView, self).get_ordering()
         sort = self.kwargs.get('sort')
         if sort == 'v':
-            return ('-views', '-update_date', '-id')
+            return '-views', '-update_date', '-id'
         return ordering
 
     def get_queryset(self, **kwargs):
@@ -120,7 +117,7 @@ class TagView(generic.ListView):
         ordering = super(TagView, self).get_ordering()
         sort = self.kwargs.get('sort')
         if sort == 'v':
-            return ('-views', '-update_date', '-id')
+            return '-views', '-update_date', '-id'
         return ordering
 
     def get_queryset(self, **kwargs):

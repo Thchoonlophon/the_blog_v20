@@ -41,7 +41,7 @@ def AddcommentView(request):
 
 @login_required
 def NotificationView(request, is_read=None):
-    '''展示提示消息列表'''
+    """展示提示消息列表"""
     now_date = datetime.now()
     return render(request, 'comment/notification.html', context={'is_read': is_read, 'now_date': now_date})
 
@@ -49,7 +49,7 @@ def NotificationView(request, is_read=None):
 @login_required
 @require_POST
 def mark_to_read(request):
-    '''将一个消息标记为已读'''
+    """将一个消息标记为已读"""
     if request.is_ajax() and request.method == "POST":
         data = request.POST
         user = request.user
@@ -63,7 +63,7 @@ def mark_to_read(request):
 @login_required
 @require_POST
 def mark_to_delete(request):
-    '''将一个消息删除'''
+    """将一个消息删除"""
     if request.is_ajax() and request.method == "POST":
         data = request.POST
         user = request.user
