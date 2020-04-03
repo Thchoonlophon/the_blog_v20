@@ -34,11 +34,11 @@ emoji_info = [
 
 
 def get_emoji_imgs(body):
-    '''
+    """
     替换掉评论中的标题表情，并且把表情替换成图片地址
     :param body:
     :return:
-    '''
+    """
     img_url = '<img class="comment-emoji-img" src="/static/comment/weibo/{}.png" title="{}" alt="{}">'
     for i in emoji_info:
         for ii in i:
