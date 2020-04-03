@@ -3,7 +3,7 @@ import re
 
 
 def push_urls(url, urls):
-    '''根据百度站长提供的API推送链接'''
+    """根据百度站长提供的API推送链接"""
     headers = {
         'User-Agent': 'curl/7.12.1',
         'Host': 'data.zz.baidu.com',
@@ -18,7 +18,7 @@ def push_urls(url, urls):
 
 
 def get_urls(url):
-    '''提取网站sitemap中所有链接，参数必须是sitemap的链接'''
+    """提取网站sitemap中所有链接，参数必须是sitemap的链接"""
     try:
         html = requests.get(url, timeout=5).text
     except:
@@ -29,8 +29,7 @@ def get_urls(url):
 
 
 if __name__ == '__main__':
-    url = 'http://data.zz.baidu.com/urls?site=tendcode.com&token=NpU01TxKEtTQAlBV'
-    urls = get_urls('http://tendcode.com/sitemap.xml')
-    r = push_urls(url,urls)
+    ul = 'http://data.zz.baidu.com/urls?site=tendcode.com&token=NpU01TxKEtTQAlBV'
+    uls = get_urls('http://tendcode.com/sitemap.xml')
+    r = push_urls(ul, uls)
     print(r)
-
